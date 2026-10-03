@@ -1,4 +1,4 @@
-# AI-tooling segment (last 10 minutes)
+# AI-tooling segment
 
 Drills:
 
