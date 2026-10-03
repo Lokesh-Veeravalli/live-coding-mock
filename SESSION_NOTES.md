@@ -87,16 +87,6 @@ Full write-up in `docs/AI_WORKFLOW.md`. In short:
 - Rule of thumb: the tool's output is a pull request from someone I haven't
   worked with.
 
-## Workflow notes (learned today)
-
-- Edit, commit, and push are three separate steps — only the push counts.
-  Work sat finished on my machine for two hours because my edits were in a
-  copy of the folder that git wasn't tracking.
-- `mvn test` from the terminal is the source of truth; the editor's Maven
-  panel can complain "not found" while the real Maven works fine.
-- `mvn run` doesn't exist — Maven builds and tests; the tests are how this
-  kind of code gets exercised.
-
 ## Status
 
 - Commit `Finished Files` pushed Oct 3, 11:22 AM CT — implementation, Problem 2
