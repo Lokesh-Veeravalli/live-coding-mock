@@ -4,8 +4,6 @@ Your rate limiter from Problem 1 works on a single instance. Production runs
 many instances behind a load balancer, and one noisy device can hit any of
 them.
 
-Answer below, out loud as you write:
-
 1. How do you enforce the same 100-events-per-minute limit globally, across
    every instance?
 2. What breaks first in the single-instance design when you scale it out?
@@ -16,7 +14,7 @@ Answer below, out loud as you write:
 4. The ingestion wrinkle: telemetry ingestion cannot block waiting on a slow
    rate-limit check. How does that change your choice?
 
-## Your answer
+## Answer
 
 ### 1. Enforcing 100/minute globally
 
@@ -98,11 +96,11 @@ Keep the Problem 1 code unchanged.
 - Store down: there is no shared store, so no new failure mode. The weak
   point moves to rebalancing.
 
-| | Added latency | Exactness | Shared store down |
-|---|---|---|---|
-| A. Redis sorted set | 1 round trip per event | Exact | Fail open or closed |
-| B. Redis counter | 1 round trip per event (batchable) | Approximate | Fail open or closed |
-| C. Sticky routing | None | Exact until membership changes | Not applicable |
+|                     | Added latency                      | Exactness                      | Shared store down   |
+| ------------------- | ---------------------------------- | ------------------------------ | ------------------- |
+| A. Redis sorted set | 1 round trip per event             | Exact                          | Fail open or closed |
+| B. Redis counter    | 1 round trip per event (batchable) | Approximate                    | Fail open or closed |
+| C. Sticky routing   | None                               | Exact until membership changes | Not applicable      |
 
 ### 4. Ingestion cannot block
 
